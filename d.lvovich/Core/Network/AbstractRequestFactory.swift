@@ -8,7 +8,7 @@
 
 import Alamofire
 
-protocol AbstractRequestFatory {
+protocol AbstractRequestFactory {
     
     var errorParser: AbstractErrorParser { get }
     var sessionManager: SessionManager { get }
@@ -16,20 +16,20 @@ protocol AbstractRequestFatory {
     
     @discardableResult
     func request<T: Decodable>(
-        reques: URLRequestConvertible,
+        request: URLRequestConvertible,
         completionHandler: @escaping (DataResponse<T>) -> Void)
         -> DataRequest
 }
 
-extension AbstractRequestFatory {
+extension AbstractRequestFactory {
     
     @discardableResult
     public func request<T: Decodable>(
-        reques: URLRequestConvertible,
+        request: URLRequestConvertible,
         completionHandler: @escaping (DataResponse<T>) -> Void)
         -> DataRequest {
             return sessionManager
-                .request(reques)
+                .request(request)
                 .responseCodable(errorParser: errorParser, queue: queue,
                                  completionHandler: completionHandler)
     }

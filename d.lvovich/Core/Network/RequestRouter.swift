@@ -12,6 +12,7 @@ enum RequestRouterEncoding {
     case url, json
 }
 
+/// Протокол, определяет структуру стандартного запроса
 protocol RequestRouter: URLRequestConvertible {
     
     var baseUrl: URL { get }

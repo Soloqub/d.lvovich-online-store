@@ -21,8 +21,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch response.result {
             case .success(let login):
                 print(login)
+                print("--------------")
             case .failure(let error):
-                print("error:")
+                print(error.localizedDescription)
+            }
+        }
+        
+        let changeProfile = requestFactory.changeProfileRequestFactory()
+        changeProfile.sendProfile(id: 12,
+                                  login: "Somebody",
+                                  password: "mypassword",
+                                  email: "123@mail.ru",
+                                  gender: "m",
+                                  creditCard: "234-2342-234234-2342",
+                                  bio: "Hefj fnwkeufn erfnweku") { response in
+            switch response.result {
+            case .success(let answ):
+                print(answ)
+                print("--------------")
+            case .failure(let error):
                 print(error.localizedDescription)
             }
         }

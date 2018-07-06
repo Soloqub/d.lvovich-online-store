@@ -8,7 +8,7 @@
 
 import Alamofire
 
-class Auth: AbstractRequestFatory {
+class Auth: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: SessionManager
     let queue: DispatchQueue?
@@ -29,7 +29,7 @@ extension Auth: AuthRequestFactory {
         (DataResponse<LoginResult>) -> Void) {
         let requestModel = Login(baseUrl: baseUrl, login: userName, password:
             password)
-        self.request(reques: requestModel, completionHandler: completionHandler)
+        self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 

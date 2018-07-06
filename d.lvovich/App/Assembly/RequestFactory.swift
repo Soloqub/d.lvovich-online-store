@@ -31,4 +31,11 @@ class RequestFactory {
         return Auth(errorParser: errorParser, sessionManager: commonSessionManager,
                     queue: sessionQueue)
     }
+    
+    func changeProfileRequestFactory() -> ProfileData {
+        
+        let errorParser = makeErrorParser()
+        return ProfileData(errorParser: errorParser, sessionManager: commonSessionManager,
+                    queue: sessionQueue)
+    }
 }
