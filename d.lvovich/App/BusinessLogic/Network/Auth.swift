@@ -12,8 +12,7 @@ class Auth: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: SessionManager
     let queue: DispatchQueue?
-    let baseUrl = URL(string:
-        "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = BaseConfig.baseURL
     init(
         errorParser: AbstractErrorParser,
         sessionManager: SessionManager,
@@ -25,8 +24,8 @@ class Auth: AbstractRequestFactory {
 }
 
 extension Auth: AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping
-        (DataResponse<LoginResult>) -> Void) {
+    func login(userName: String, password: String,
+               completionHandler: @escaping (DataResponse<LoginResult>) -> Void) {
         let requestModel = Login(baseUrl: baseUrl, login: userName, password:
             password)
         self.request(request: requestModel, completionHandler: completionHandler)

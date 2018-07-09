@@ -12,8 +12,7 @@ class ProfileData: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: SessionManager
     let queue: DispatchQueue?
-    let baseUrl = URL(string:
-        "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = BaseConfig.baseURL
     init(
         errorParser: AbstractErrorParser,
         sessionManager: SessionManager,
@@ -25,21 +24,16 @@ class ProfileData: AbstractRequestFactory {
 }
 
 extension ProfileData {
-    func sendProfile(id: Int,
-                     login: String,
-                     password: String,
-                     email: String,
-                     gender: String,
-                     creditCard: String, bio: String,
+    func sendProfile(userProfile: UserProfile,
                      completionHandler: @escaping (DataResponse<RequestResult>) -> Void) {
         let requestModel = Profile(baseUrl: baseUrl,
-                                   id: id,
-                                   login: login,
-                                   password: password,
-                                   email: email,
-                                   gender: gender,
-                                   creditCard: creditCard,
-                                   bio: bio)
+                                   id: userProfile.id,
+                                   login: userProfile.login,
+                                   password: userProfile.password,
+                                   email: userProfile.email,
+                                   gender: userProfile.gender,
+                                   creditCard: userProfile.creditCard,
+                                   bio: userProfile.bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
