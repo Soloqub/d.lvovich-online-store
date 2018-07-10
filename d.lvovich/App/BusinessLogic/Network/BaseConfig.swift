@@ -12,6 +12,8 @@ struct BaseConfig {
     
     private init() { }
     
+    // swiftlint:disable force_unwrapping
     static let baseURL = URL(string:
     "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    // swiftlint:enable force_unwrapping
 }

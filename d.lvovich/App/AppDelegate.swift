@@ -26,10 +26,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
+
+        auth.logout(userID: 4) { response in
+            switch response.result {
+            case .success(let logout):
+                print(logout)
+                print("--------------")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
         
         let changeProfile = requestFactory.changeProfileRequestFactory()
         let newProfile = UserProfile(id: 12, login: "Somebody", password: "mypassword", email: "123@mail.ru",
                                      gender: "m", creditCard: "234-2342-234234-2342", bio: "Hefj fnwkeufn erfnweku")
+        
+        changeProfile.register(userProfile: newProfile) { response in
+            switch response.result {
+            case .success(let answ):
+                print(answ)
+                print("--------------")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
         changeProfile.sendProfile(userProfile: newProfile) { response in
             switch response.result {
             case .success(let answ):
@@ -39,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+
         return true
     }
 
