@@ -14,6 +14,7 @@
 		92468D7620E983E000593F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92468D7420E983E000593F5A /* LaunchScreen.storyboard */; };
 		92468D8120E983E000593F5A /* d_lvovichTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92468D8020E983E000593F5A /* d_lvovichTests.swift */; };
 		92468D8C20E983E000593F5A /* d_lvovichUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92468D8B20E983E000593F5A /* d_lvovichUITests.swift */; };
+		9265422020F4239000989B3A /* ProfileRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265421F20F4239000989B3A /* ProfileRequestFactory.swift */; };
 		9265A50620EE5A3C005813C9 /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265A50520EE5A3C005813C9 /* AbstractErrorParser.swift */; };
 		9265A50920EE5AAF005813C9 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9265A50820EE5AAF005813C9 /* ErrorParser.swift */; };
 		927F7F7020EEB7B900EBB129 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927F7F6F20EEB7B900EBB129 /* AuthRequestFactory.swift */; };
@@ -24,8 +25,14 @@
 		92C0566920EE6BF7006D48ED /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0566820EE6BF7006D48ED /* RequestRouter.swift */; };
 		92C0566D20EE6D8D006D48ED /* LoginResult + User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0566C20EE6D8D006D48ED /* LoginResult + User.swift */; };
 		92C0566F20EF7741006D48ED /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0566E20EF7741006D48ED /* ProfileData.swift */; };
-		92C0567120EFA7BB006D48ED /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0567020EFA7BB006D48ED /* UserProfile.swift */; };
+		92C0567120EFA7BB006D48ED /* RegResult + UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0567020EFA7BB006D48ED /* RegResult + UserProfile.swift */; };
 		92C0567320EFAA89006D48ED /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0567220EFAA89006D48ED /* RequestResult.swift */; };
+		92E2CF7E20F4BD2B008552F6 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CF7D20F4BD2B008552F6 /* Product.swift */; };
+		92E2CF8020F4BE1D008552F6 /* ProductsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CF7F20F4BE1D008552F6 /* ProductsData.swift */; };
+		92E2CF8220F4C0AB008552F6 /* ProductRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CF8120F4C0AB008552F6 /* ProductRequestFactory.swift */; };
+		92E2CF8420F4F4A8008552F6 /* ResponseCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CF8320F4F4A8008552F6 /* ResponseCodableTests.swift */; };
+		92E2CF8620F4F9FE008552F6 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CF8520F4F9FE008552F6 /* RequestTests.swift */; };
+		92F739FD20F39ABB0043CCAF /* BaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F739FC20F39ABB0043CCAF /* BaseConfig.swift */; };
 		BE04C36E920C5FB8CFE54B4C /* Pods_d_lvovichTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8690F32F43DE7A9B40B84EF9 /* Pods_d_lvovichTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +72,7 @@
 		92468D8720E983E000593F5A /* d.lvovichUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = d.lvovichUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92468D8B20E983E000593F5A /* d_lvovichUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = d_lvovichUITests.swift; sourceTree = "<group>"; };
 		92468D8D20E983E000593F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9265421F20F4239000989B3A /* ProfileRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequestFactory.swift; sourceTree = "<group>"; };
 		9265A50520EE5A3C005813C9 /* AbstractErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
 		9265A50820EE5AAF005813C9 /* ErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
 		927F7F6F20EEB7B900EBB129 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
@@ -75,8 +83,14 @@
 		92C0566820EE6BF7006D48ED /* RequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
 		92C0566C20EE6D8D006D48ED /* LoginResult + User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginResult + User.swift"; sourceTree = "<group>"; };
 		92C0566E20EF7741006D48ED /* ProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
-		92C0567020EFA7BB006D48ED /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		92C0567020EFA7BB006D48ED /* RegResult + UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegResult + UserProfile.swift"; sourceTree = "<group>"; };
 		92C0567220EFAA89006D48ED /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
+		92E2CF7D20F4BD2B008552F6 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		92E2CF7F20F4BE1D008552F6 /* ProductsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsData.swift; sourceTree = "<group>"; };
+		92E2CF8120F4C0AB008552F6 /* ProductRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRequestFactory.swift; sourceTree = "<group>"; };
+		92E2CF8320F4F4A8008552F6 /* ResponseCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodableTests.swift; sourceTree = "<group>"; };
+		92E2CF8520F4F9FE008552F6 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		92F739FC20F39ABB0043CCAF /* BaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfig.swift; sourceTree = "<group>"; };
 		EDBA580343A975C4157C7ADE /* Pods_d_lvovich.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_d_lvovich.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F593522C946B63185A16E4B6 /* Pods-d.lvovichUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-d.lvovichUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-d.lvovichUITests/Pods-d.lvovichUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				92468D8020E983E000593F5A /* d_lvovichTests.swift */,
+				92E2CF8320F4F4A8008552F6 /* ResponseCodableTests.swift */,
+				92E2CF8520F4F9FE008552F6 /* RequestTests.swift */,
 				92468D8220E983E000593F5A /* Info.plist */,
 			);
 			path = d.lvovichTests;
@@ -194,8 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				92C0566C20EE6D8D006D48ED /* LoginResult + User.swift */,
-				92C0567020EFA7BB006D48ED /* UserProfile.swift */,
+				92C0567020EFA7BB006D48ED /* RegResult + UserProfile.swift */,
 				92C0567220EFAA89006D48ED /* RequestResult.swift */,
+				92E2CF7D20F4BD2B008552F6 /* Product.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -256,8 +273,12 @@
 			isa = PBXGroup;
 			children = (
 				927F7F6F20EEB7B900EBB129 /* AuthRequestFactory.swift */,
+				9265421F20F4239000989B3A /* ProfileRequestFactory.swift */,
+				92E2CF8120F4C0AB008552F6 /* ProductRequestFactory.swift */,
 				927F7F7220EEB83100EBB129 /* Auth.swift */,
 				92C0566E20EF7741006D48ED /* ProfileData.swift */,
+				92E2CF7F20F4BE1D008552F6 /* ProductsData.swift */,
+				92F739FC20F39ABB0043CCAF /* BaseConfig.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -536,19 +557,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E2CF8220F4C0AB008552F6 /* ProductRequestFactory.swift in Sources */,
 				927F7F7520EEB8A800EBB129 /* RequestFactory.swift in Sources */,
 				92C0566720EE6B35006D48ED /* AbstractRequestFactory.swift in Sources */,
 				92468D6C20E983DB00593F5A /* AppDelegate.swift in Sources */,
 				92C0566920EE6BF7006D48ED /* RequestRouter.swift in Sources */,
+				92F739FD20F39ABB0043CCAF /* BaseConfig.swift in Sources */,
 				92C0566D20EE6D8D006D48ED /* LoginResult + User.swift in Sources */,
 				927F7F7320EEB83100EBB129 /* Auth.swift in Sources */,
 				92C0566F20EF7741006D48ED /* ProfileData.swift in Sources */,
 				927F7F7020EEB7B900EBB129 /* AuthRequestFactory.swift in Sources */,
+				92E2CF7E20F4BD2B008552F6 /* Product.swift in Sources */,
 				9265A50920EE5AAF005813C9 /* ErrorParser.swift in Sources */,
 				9265A50620EE5A3C005813C9 /* AbstractErrorParser.swift in Sources */,
+				9265422020F4239000989B3A /* ProfileRequestFactory.swift in Sources */,
 				92C0567320EFAA89006D48ED /* RequestResult.swift in Sources */,
 				92C0566520EE671B006D48ED /* DataRequest.swift in Sources */,
-				92C0567120EFA7BB006D48ED /* UserProfile.swift in Sources */,
+				92E2CF8020F4BE1D008552F6 /* ProductsData.swift in Sources */,
+				92C0567120EFA7BB006D48ED /* RegResult + UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,7 +582,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E2CF8620F4F9FE008552F6 /* RequestTests.swift in Sources */,
 				92468D8120E983E000593F5A /* d_lvovichTests.swift in Sources */,
+				92E2CF8420F4F4A8008552F6 /* ResponseCodableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

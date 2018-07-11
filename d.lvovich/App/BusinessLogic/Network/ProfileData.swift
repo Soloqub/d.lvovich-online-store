@@ -12,8 +12,7 @@ class ProfileData: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: SessionManager
     let queue: DispatchQueue?
-    let baseUrl = URL(string:
-        "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = BaseConfig.baseURL
     init(
         errorParser: AbstractErrorParser,
         sessionManager: SessionManager,
@@ -24,22 +23,33 @@ class ProfileData: AbstractRequestFactory {
     }
 }
 
-extension ProfileData {
-    func sendProfile(id: Int,
-                     login: String,
-                     password: String,
-                     email: String,
-                     gender: String,
-                     creditCard: String, bio: String,
+extension ProfileData: ProfileRequestFactory {
+    
+    func sendProfile(userProfile: UserProfile,
                      completionHandler: @escaping (DataResponse<RequestResult>) -> Void) {
         let requestModel = Profile(baseUrl: baseUrl,
-                                   id: id,
-                                   login: login,
-                                   password: password,
-                                   email: email,
-                                   gender: gender,
-                                   creditCard: creditCard,
-                                   bio: bio)
+                                   requestType: .mod,
+                                   id: userProfile.id,
+                                   login: userProfile.login,
+                                   password: userProfile.password,
+                                   email: userProfile.email,
+                                   gender: userProfile.gender,
+                                   creditCard: userProfile.creditCard,
+                                   bio: userProfile.bio)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
+
+    func register(userProfile: UserProfile,
+                  completionHandler: @escaping (DataResponse<RegResult>) -> Void) {
+        let requestModel = Profile(baseUrl: baseUrl,
+                                   requestType: .reg,
+                                   id: userProfile.id,
+                                   login: userProfile.login,
+                                   password: userProfile.password,
+                                   email: userProfile.email,
+                                   gender: userProfile.gender,
+                                   creditCard: userProfile.creditCard,
+                                   bio: userProfile.bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -48,7 +58,7 @@ extension ProfileData {
     struct Profile: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "changeUserData.json"
+        let requestType: RequestType
         let id: Int
         let login: String
         let password: String
@@ -56,6 +66,10 @@ extension ProfileData {
         let gender: String
         let creditCard: String
         let bio: String
+        
+        enum RequestType {
+            case reg, mod
+        }
         
         var parameters: Parameters? {
             return [
@@ -67,6 +81,15 @@ extension ProfileData {
                 "credit_card": creditCard,
                 "bio": bio
             ]
+        }
+        
+        var path: String {
+            switch requestType {
+            case .reg:
+                return "registerUser.json"
+            case .mod:
+                return "changeUserData.json"
+            }
         }
     }
 }

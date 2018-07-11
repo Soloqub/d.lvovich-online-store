@@ -11,4 +11,7 @@ import Alamofire
 protocol AuthRequestFactory {
     func login(userName: String, password: String, completionHandler: @escaping
         (DataResponse<LoginResult>) -> Void)
+
+    func logout(userID: Int, completionHandler: @escaping
+        (DataResponse<RequestResult>) -> Void)
 }

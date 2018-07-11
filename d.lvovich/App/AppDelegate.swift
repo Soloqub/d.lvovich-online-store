@@ -16,25 +16,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let auth = requestFactory.makeAuthRequestFactory()
-        auth.login(userName: "Somebody", password: "mypassword") { response in
-            switch response.result {
-            case .success(let login):
-                print(login)
-                print("--------------")
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+//        let auth = requestFactory.makeAuthRequestFactory()
+//        auth.login(userName: "Somebody", password: "mypassword") { response in
+//            switch response.result {
+//            case .success(let login):
+//                print(login)
+//                print("--------------")
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        auth.logout(userID: 4) { response in
+//            switch response.result {
+//            case .success(let logout):
+//                print(logout)
+//                print("--------------")
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        let changeProfile = requestFactory.changeProfileRequestFactory()
+//        let newProfile = UserProfile(id: 12, login: "Somebody", password: "mypassword", email: "123@mail.ru",
+//                                     gender: "m", creditCard: "234-2342-234234-2342", bio: "Hefj fnwkeufn erfnweku")
+//
+//        changeProfile.register(userProfile: newProfile) { response in
+//            switch response.result {
+//            case .success(let answ):
+//                print(answ)
+//                print("--------------")
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//        changeProfile.sendProfile(userProfile: newProfile) { response in
+//            switch response.result {
+//            case .success(let answ):
+//                print(answ)
+//                print("--------------")
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
         
-        let changeProfile = requestFactory.changeProfileRequestFactory()
-        changeProfile.sendProfile(id: 12,
-                                  login: "Somebody",
-                                  password: "mypassword",
-                                  email: "123@mail.ru",
-                                  gender: "m",
-                                  creditCard: "234-2342-234234-2342",
-                                  bio: "Hefj fnwkeufn erfnweku") { response in
+        let getProduct = requestFactory.productRequestFactory()
+        getProduct.getProductsList { response in
             switch response.result {
             case .success(let answ):
                 print(answ)
@@ -44,6 +72,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        getProduct.getProduct(byID: 12) { response in
+            switch response.result {
+            case .success(let answ):
+                print(answ)
+                print("--------------")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
         return true
     }
 

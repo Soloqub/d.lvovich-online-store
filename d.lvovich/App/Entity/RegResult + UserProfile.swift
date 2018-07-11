@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct RegResult: Codable {
+    let result: Int
+    let userMessage: String
+}
+
 struct UserProfile: Codable {
     let id: Int
     let login: String
