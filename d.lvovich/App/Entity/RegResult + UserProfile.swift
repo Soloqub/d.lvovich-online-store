@@ -10,7 +10,7 @@ import Foundation
 
 struct RegResult: Codable {
     let result: Int
-    let userMessage: String
+    let message: String
 }
 
 struct UserProfile: Codable {

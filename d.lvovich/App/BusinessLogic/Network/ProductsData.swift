@@ -48,7 +48,7 @@ extension ProductData {
     struct ProductRequest: RequestRouter {
         let path: String = "getGoodById.json"
         let baseUrl: URL = BaseConfig.baseURL
-        let method: HTTPMethod = .get
+        let method: HTTPMethod = .post
         let id: Int
         
         var parameters: Parameters? {

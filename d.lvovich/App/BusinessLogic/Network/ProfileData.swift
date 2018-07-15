@@ -57,7 +57,7 @@ extension ProfileData: ProfileRequestFactory {
 extension ProfileData {
     struct Profile: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
+        let method: HTTPMethod = .post
         let requestType: RequestType
         let id: Int
         let login: String
@@ -86,7 +86,7 @@ extension ProfileData {
         var path: String {
             switch requestType {
             case .reg:
-                return "registerUser.json"
+                return "register"
             case .mod:
                 return "changeUserData.json"
             }

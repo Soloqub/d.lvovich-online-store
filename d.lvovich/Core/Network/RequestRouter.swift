@@ -30,17 +30,20 @@ extension RequestRouter {
     }
     
     var encoding: RequestRouterEncoding {
-        return .url
+        if method == .get { return .url } else
+        { return .json }
     }
     
     func asURLRequest() throws -> URLRequest {
-        
+
         var urlRequest = URLRequest(url: fullUrl)
         urlRequest.httpMethod = method.rawValue
         switch self.encoding {
         case .url:
+            print("URL ", try? URLEncoding.default.encode(urlRequest, with: parameters))
             return try URLEncoding.default.encode(urlRequest, with: parameters)
         case .json:
+            print("JSON ", try? JSONEncoding.default.encode(urlRequest, with: parameters))
             return try JSONEncoding.default.encode(urlRequest, with: parameters)
         }
     }
