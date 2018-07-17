@@ -38,7 +38,7 @@ extension ProductData: ProductRequestFactory {
 extension ProductData {
     
     struct ProductListRequest: RequestRouter {
-        let path: String = "catalogData.json"
+        let path: String = "getProducts"
         let baseUrl: URL = BaseConfig.baseURL
         let method: HTTPMethod = .get
         
@@ -46,7 +46,7 @@ extension ProductData {
     }
     
     struct ProductRequest: RequestRouter {
-        let path: String = "getGoodById.json"
+        let path: String = "getProductByID"
         let baseUrl: URL = BaseConfig.baseURL
         let method: HTTPMethod = .post
         let id: Int

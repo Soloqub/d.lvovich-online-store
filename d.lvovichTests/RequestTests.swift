@@ -39,7 +39,7 @@ class RequestTests: XCTestCase {
     func testLogout() {
         
         let auth = requestFactory?.makeAuthRequestFactory()
-        auth?.logout(userID: 12) { (response) in
+        auth?.logout(userID: 12) { response in
             
             let result = response.result.value?.result
             XCTAssertEqual(result, 1)
@@ -51,7 +51,7 @@ class RequestTests: XCTestCase {
     func testProductList() {
         
         let getProduct = requestFactory?.productRequestFactory()
-        getProduct?.getProductsList { (response) in
+        getProduct?.getProductsList { response in
             
             let result = response.result.value
             XCTAssert(result != nil)
@@ -63,7 +63,7 @@ class RequestTests: XCTestCase {
     func testProductByID() {
         
         let getProduct = requestFactory?.productRequestFactory()
-        getProduct?.getProduct(byID: 1) { (response) in
+        getProduct?.getProduct(byID: 1) { response in
             
             let result = response.result.value?.result
             XCTAssertEqual(result, 1)
@@ -71,5 +71,30 @@ class RequestTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
-    
+
+    func testRegister() {
+
+        let reg = requestFactory?.changeProfileRequestFactory()
+        let profile = UserProfile(id: 12, login: "Username", password: "pass123", email: "123@mail.ru", gender: "m", creditCard: "123-1234-32134", bio: "No bio")
+        reg?.register(userProfile: profile) { response in
+
+            let result = response.result.value?.result
+            XCTAssertEqual(result, 1)
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func testPrifileUpdate() {
+
+        let update = requestFactory?.changeProfileRequestFactory()
+        let profile = UserProfile(id: 12, login: "Username", password: "pass123", email: "123@mail.ru", gender: "m", creditCard: "123-1234-32134", bio: "No bio")
+        update?.sendProfile(userProfile: profile) { response in
+
+            let result = response.result.value?.result
+            XCTAssertEqual(result, 1)
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
 }

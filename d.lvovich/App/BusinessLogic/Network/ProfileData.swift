@@ -88,7 +88,7 @@ extension ProfileData {
             case .reg:
                 return "register"
             case .mod:
-                return "changeUserData.json"
+                return "updateProfile"
             }
         }
     }
