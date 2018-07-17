@@ -45,4 +45,11 @@ class RequestFactory {
         return ProductData(errorParser: errorParser, sessionManager: commonSessionManager,
                            queue: sessionQueue)
     }
+    
+    func reviewRequestFactory() -> ReviewRequestFactory {
+        
+        let errorParser = makeErrorParser()
+        return ReviewData(errorParser: errorParser, sessionManager: commonSessionManager,
+                           queue: sessionQueue)
+    }
 }

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		53E8BC64117110FCA1FE394B /* Pods_d_lvovich.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBA580343A975C4157C7ADE /* Pods_d_lvovich.framework */; };
 		781E9765562B669AABD94FB4 /* Pods_d_lvovichUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750C014A002D64C0141201A8 /* Pods_d_lvovichUITests.framework */; };
+		921441D020FE35B2002356A4 /* ReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921441CF20FE35B2002356A4 /* ReviewRequestFactory.swift */; };
+		921441D220FE36CC002356A4 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921441D120FE36CC002356A4 /* Review.swift */; };
+		921441D420FE3A6D002356A4 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921441D320FE3A6D002356A4 /* ReviewData.swift */; };
 		92468D6C20E983DB00593F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92468D6B20E983DB00593F5A /* AppDelegate.swift */; };
 		92468D7320E983E000593F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92468D7220E983E000593F5A /* Assets.xcassets */; };
 		92468D7620E983E000593F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92468D7420E983E000593F5A /* LaunchScreen.storyboard */; };
@@ -61,6 +64,9 @@
 		750C014A002D64C0141201A8 /* Pods_d_lvovichUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_d_lvovichUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8690F32F43DE7A9B40B84EF9 /* Pods_d_lvovichTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_d_lvovichTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C0BF4ED88BD6724E4D1259E /* Pods-d.lvovichTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-d.lvovichTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-d.lvovichTests/Pods-d.lvovichTests.debug.xcconfig"; sourceTree = "<group>"; };
+		921441CF20FE35B2002356A4 /* ReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRequestFactory.swift; sourceTree = "<group>"; };
+		921441D120FE36CC002356A4 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		921441D320FE3A6D002356A4 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		92468D6820E983DA00593F5A /* d.lvovich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = d.lvovich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92468D6B20E983DB00593F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92468D7220E983E000593F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 				92C0567020EFA7BB006D48ED /* RegResult + UserProfile.swift */,
 				92C0567220EFAA89006D48ED /* RequestResult.swift */,
 				92E2CF7D20F4BD2B008552F6 /* Product.swift */,
+				921441D120FE36CC002356A4 /* Review.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -275,9 +282,11 @@
 				927F7F6F20EEB7B900EBB129 /* AuthRequestFactory.swift */,
 				9265421F20F4239000989B3A /* ProfileRequestFactory.swift */,
 				92E2CF8120F4C0AB008552F6 /* ProductRequestFactory.swift */,
+				921441CF20FE35B2002356A4 /* ReviewRequestFactory.swift */,
 				927F7F7220EEB83100EBB129 /* Auth.swift */,
 				92C0566E20EF7741006D48ED /* ProfileData.swift */,
 				92E2CF7F20F4BE1D008552F6 /* ProductsData.swift */,
+				921441D320FE3A6D002356A4 /* ReviewData.swift */,
 				92F739FC20F39ABB0043CCAF /* BaseConfig.swift */,
 			);
 			path = Network;
@@ -562,6 +571,7 @@
 				92C0566720EE6B35006D48ED /* AbstractRequestFactory.swift in Sources */,
 				92468D6C20E983DB00593F5A /* AppDelegate.swift in Sources */,
 				92C0566920EE6BF7006D48ED /* RequestRouter.swift in Sources */,
+				921441D220FE36CC002356A4 /* Review.swift in Sources */,
 				92F739FD20F39ABB0043CCAF /* BaseConfig.swift in Sources */,
 				92C0566D20EE6D8D006D48ED /* LoginResult + User.swift in Sources */,
 				927F7F7320EEB83100EBB129 /* Auth.swift in Sources */,
@@ -573,7 +583,9 @@
 				9265422020F4239000989B3A /* ProfileRequestFactory.swift in Sources */,
 				92C0567320EFAA89006D48ED /* RequestResult.swift in Sources */,
 				92C0566520EE671B006D48ED /* DataRequest.swift in Sources */,
+				921441D020FE35B2002356A4 /* ReviewRequestFactory.swift in Sources */,
 				92E2CF8020F4BE1D008552F6 /* ProductsData.swift in Sources */,
+				921441D420FE3A6D002356A4 /* ReviewData.swift in Sources */,
 				92C0567120EFA7BB006D48ED /* RegResult + UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

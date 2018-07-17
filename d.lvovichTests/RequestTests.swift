@@ -85,7 +85,7 @@ class RequestTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
 
-    func testPrifileUpdate() {
+    func testProfileUpdate() {
 
         let update = requestFactory?.changeProfileRequestFactory()
         let profile = UserProfile(id: 12, login: "Username", password: "pass123", email: "123@mail.ru", gender: "m", creditCard: "123-1234-32134", bio: "No bio")
@@ -93,6 +93,42 @@ class RequestTests: XCTestCase {
 
             let result = response.result.value?.result
             XCTAssertEqual(result, 1)
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testReviewList() {
+        
+        let getReviews = requestFactory?.reviewRequestFactory()
+        getReviews?.getReviewsList(byID: 12) { response in
+            
+            let result = response.result.value
+            XCTAssert(result != nil)
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testAddReview() {
+        
+        let addReview = requestFactory?.reviewRequestFactory()
+        addReview?.addProductReview(byID: 12) { response in
+            
+            let result = response.result.value
+            XCTAssert(result != nil)
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testDeleteReview() {
+        
+        let deleteReview = requestFactory?.reviewRequestFactory()
+        deleteReview?.deleteProductReview(withID: 1, byProductID: 12) { response in
+            
+            let result = response.result.value
+            XCTAssert(result != nil)
             self.expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1)
