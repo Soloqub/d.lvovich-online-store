@@ -30,8 +30,7 @@ extension RequestRouter {
     }
     
     var encoding: RequestRouterEncoding {
-        if method == .get { return .url } else
-        { return .json }
+        if method == .get { return .url } else { return .json }
     }
     
     func asURLRequest() throws -> URLRequest {
