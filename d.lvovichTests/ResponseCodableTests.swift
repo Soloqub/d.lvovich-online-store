@@ -7,8 +7,8 @@
 //
 
 import Alamofire
-import XCTest
 @testable import d_lvovich
+import XCTest
 
 class ResponseCodableTests: XCTestCase {
     
@@ -49,15 +49,20 @@ class ResponseCodableTests: XCTestCase {
     }
     
     func testShouldDownloadAndParse() {
+
+        guard let errorParser = errorParser else {
+            XCTFail("errorParser == nil")
+            return
+        }
         
         Alamofire
             .request("https://jsonplaceholder.typicode.com/posts/1")
-            .responseCodable(errorParser: errorParser!) { (response: DataResponse<PostStub>) -> (Void) in
+            .responseCodable(errorParser: errorParser) { (response: DataResponse<PostStub>) -> Void in
                 switch response.result {
                 case .success:
                     break
                 case .failure:
-                    XCTFail()
+                    XCTFail("Ошибка в запросе")
                 }
                 self.expectation.fulfill()
         }

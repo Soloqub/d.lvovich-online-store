@@ -6,8 +6,8 @@
 //  Copyright © 2018 Денис Львович. All rights reserved.
 //
 
-import XCTest
 @testable import d_lvovich
+import XCTest
 
 class RequestTests: XCTestCase {
     
@@ -30,7 +30,6 @@ class RequestTests: XCTestCase {
         auth?.login(userName: "Ivan", password: "Xxxxxxx") { response in
             
             let result = response.result.value?.result
-            print("\n", response.result.value)
             XCTAssertEqual(result, 1)
             self.expectation.fulfill()
         }
