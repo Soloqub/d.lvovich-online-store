@@ -9,10 +9,11 @@
 import Alamofire
 
 protocol ReviewRequestFactory {
+    
     func getReviewsList(byID productID: Int,
-                        completionHandler: @escaping (DataResponse<[Product]>) -> Void)
+                        completionHandler: @escaping (DataResponse<[Review]>) -> Void)
     func addProductReview(byID productID: Int,
-                          completionHandler: @escaping (DataResponse<ProductDetail>) -> Void)
+                          completionHandler: @escaping (DataResponse<ReviewResult>) -> Void)
     func deleteProductReview(withID id: Int, byProductID productID: Int,
-                             completionHandler: @escaping (DataResponse<ProductDetail>) -> Void)
+                             completionHandler: @escaping (DataResponse<RequestResult>) -> Void)
 }

@@ -8,6 +8,12 @@
 
 import Foundation
 
+struct ReviewResult: Codable {
+    let result: Int
+    let message: String
+    let review: Review
+}
+
 struct Review: Codable {
     let id: Int
     let authorName: String
