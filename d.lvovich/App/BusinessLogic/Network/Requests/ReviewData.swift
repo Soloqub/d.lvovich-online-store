@@ -24,19 +24,20 @@ class ReviewData: AbstractRequestFactory {
 }
 
 extension ReviewData: ReviewRequestFactory {
-    func getReviewsList(byID productID: Int, completionHandler: @escaping (DataResponse<[Product]>) -> Void) {
+    
+    func getReviewsList(byID productID: Int, completionHandler: @escaping (DataResponse<[Review]>) -> Void) {
         
         let requestModel = ReviewListRequest(productID: 12)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func addProductReview(byID productID: Int, completionHandler: @escaping (DataResponse<ProductDetail>) -> Void) {
+    func addProductReview(byID productID: Int, completionHandler: @escaping (DataResponse<ReviewResult>) -> Void) {
         let requestModel = AddProductReviewRequest(productID: productID)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func deleteProductReview(withID id: Int, byProductID productID: Int, completionHandler: @escaping (DataResponse<ProductDetail>) -> Void) {
-        let requestModel = DeleteProductReviewRequest(productID: 12, id: 1)
+    func deleteProductReview(withID id: Int, byProductID productID: Int, completionHandler: @escaping (DataResponse<RequestResult>) -> Void) {
+        let requestModel = DeleteProductReviewRequest(productID: 12, reviewID: 1)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -70,16 +71,16 @@ extension ReviewData {
     }
     
     struct DeleteProductReviewRequest: RequestRouter {
-        let path: String = "addReview"
+        let path: String = "deleteReview"
         let baseUrl: URL = BaseConfig.baseURL
         let method: HTTPMethod = .post
         let productID: Int
-        let id: Int
+        let reviewID: Int
         
         var parameters: Parameters? {
             return [
                 "id_product": productID,
-                "id_review": id
+                "id_review": reviewID
             ]
         }
     }

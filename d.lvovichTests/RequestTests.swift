@@ -27,9 +27,10 @@ class RequestTests: XCTestCase {
     func testLogin() {
         
         let auth = requestFactory?.makeAuthRequestFactory()
-        auth?.login(userName: "Ivan", password: "Xxxxxxx") { (response) in
+        auth?.login(userName: "Ivan", password: "Xxxxxxx") { response in
             
             let result = response.result.value?.result
+            print("\n", response.result.value)
             XCTAssertEqual(result, 1)
             self.expectation.fulfill()
         }

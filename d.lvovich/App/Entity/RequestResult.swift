@@ -10,4 +10,5 @@ import Foundation
 
 struct RequestResult: Codable {
     let result: Int
+    let message: String
 }

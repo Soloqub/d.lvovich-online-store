@@ -48,7 +48,7 @@ extension ProductData {
     struct ProductRequest: RequestRouter {
         let path: String = "getProductByID"
         let baseUrl: URL = BaseConfig.baseURL
-        let method: HTTPMethod = .post
+        let method: HTTPMethod = .get
         let id: Int
         
         var parameters: Parameters? {

@@ -279,17 +279,33 @@
 		927F7F7120EEB7E300EBB129 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				92AA2CF120FE9A6E00CEB74C /* Factories */,
+				92AA2CF220FE9A8000CEB74C /* Requests */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		92AA2CF120FE9A6E00CEB74C /* Factories */ = {
+			isa = PBXGroup;
+			children = (
 				927F7F6F20EEB7B900EBB129 /* AuthRequestFactory.swift */,
 				9265421F20F4239000989B3A /* ProfileRequestFactory.swift */,
 				92E2CF8120F4C0AB008552F6 /* ProductRequestFactory.swift */,
 				921441CF20FE35B2002356A4 /* ReviewRequestFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		92AA2CF220FE9A8000CEB74C /* Requests */ = {
+			isa = PBXGroup;
+			children = (
 				927F7F7220EEB83100EBB129 /* Auth.swift */,
 				92C0566E20EF7741006D48ED /* ProfileData.swift */,
 				92E2CF7F20F4BE1D008552F6 /* ProductsData.swift */,
 				921441D320FE3A6D002356A4 /* ReviewData.swift */,
 				92F739FC20F39ABB0043CCAF /* BaseConfig.swift */,
 			);
-			path = Network;
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		C1A453940DD1E3A97B8B8FDE /* Pods */ = {
