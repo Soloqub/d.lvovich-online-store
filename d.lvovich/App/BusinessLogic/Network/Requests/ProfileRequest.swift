@@ -1,5 +1,5 @@
 //
-//  ProfileData.swift
+//  ProfileRequest.swift
 //  d.lvovich
 //
 //  Created by Денис on 06.07.2018.

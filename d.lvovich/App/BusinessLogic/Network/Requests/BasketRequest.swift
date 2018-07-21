@@ -1,14 +1,14 @@
 //
-//  ReviewData.swift
+//  BasketRequest.swift
 //  d.lvovich
 //
-//  Created by Денис on 17.07.2018.
+//  Created by Денис Львович on 21.07.2018.
 //  Copyright © 2018 Денис Львович. All rights reserved.
 //
 
 import Alamofire
 
-class ReviewData: AbstractRequestFactory {
+class BasketRequest: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: SessionManager
     let queue: DispatchQueue?
@@ -23,64 +23,64 @@ class ReviewData: AbstractRequestFactory {
     }
 }
 
-extension ReviewData: ReviewRequestFactory {
-    
-    func getReviewsList(byID productID: Int, completionHandler: @escaping (DataResponse<[Review]>) -> Void) {
-        
-        let requestModel = ReviewListRequest(productID: 12)
+extension BasketRequest: BasketRequestFactory {
+
+    func addProductToBasket(withProductID productID: Int, andQuantity quantity: Int,
+                            completionHandler: @escaping (DataResponse<RequestResult>) -> Void) {
+        let requestModel = AddProductToBasketRequest(productID: productID, quantity: quantity)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    
-    func addProductReview(byID productID: Int, completionHandler: @escaping (DataResponse<ReviewResult>) -> Void) {
-        let requestModel = AddProductReviewRequest(productID: productID)
+
+    func deleteProductFromBasket(withProductID productID: Int, completionHandler: @escaping (DataResponse<RequestResult>) -> Void) {
+        let requestModel = DeleteProductFromBasketRequest(productID: productID)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    
-    func deleteProductReview(withID id: Int, byProductID productID: Int, completionHandler: @escaping (DataResponse<RequestResult>) -> Void) {
-        let requestModel = DeleteProductReviewRequest(productID: 12, reviewID: 1)
+
+    func basketPay(forUser id: Int, completionHandler: @escaping (DataResponse<RequestResult>) -> Void) {
+        let requestModel = BasketPayRequest(userID: id)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension ReviewData {
-    
-    struct ReviewListRequest: RequestRouter {
-        let path: String = "getReviews"
-        let baseUrl: URL = BaseConfig.baseURL
-        let method: HTTPMethod = .get
-        let productID: Int
-        
-        var parameters: Parameters? {
-            return [
-                "id_product": productID
-            ]
-        }
-    }
-    
-    struct AddProductReviewRequest: RequestRouter {
-        let path: String = "addReview"
+extension BasketRequest {
+
+    struct AddProductToBasketRequest: RequestRouter {
+        let path: String = "addToBasket"
         let baseUrl: URL = BaseConfig.baseURL
         let method: HTTPMethod = .post
         let productID: Int
-        
-        var parameters: Parameters? {
-            return [
-                "id_product": productID
-            ]
-        }
-    }
-    
-    struct DeleteProductReviewRequest: RequestRouter {
-        let path: String = "deleteReview"
-        let baseUrl: URL = BaseConfig.baseURL
-        let method: HTTPMethod = .post
-        let productID: Int
-        let reviewID: Int
-        
+        let quantity: Int
+
         var parameters: Parameters? {
             return [
                 "id_product": productID,
-                "id_review": reviewID
+                "quantity": quantity
+            ]
+        }
+    }
+
+    struct DeleteProductFromBasketRequest: RequestRouter {
+        let path: String = "deleteFromBasket"
+        let baseUrl: URL = BaseConfig.baseURL
+        let method: HTTPMethod = .post
+        let productID: Int
+
+        var parameters: Parameters? {
+            return [
+                "id_product": productID
+            ]
+        }
+    }
+
+    struct BasketPayRequest: RequestRouter {
+        let path: String = "basketPay"
+        let baseUrl: URL = BaseConfig.baseURL
+        let method: HTTPMethod = .post
+        let userID: Int
+
+        var parameters: Parameters? {
+            return [
+                "id_user": userID
             ]
         }
     }
