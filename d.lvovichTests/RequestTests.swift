@@ -6,8 +6,8 @@
 //  Copyright © 2018 Денис Львович. All rights reserved.
 //
 
-import XCTest
 @testable import d_lvovich
+import XCTest
 
 class RequestTests: XCTestCase {
     
@@ -23,6 +23,8 @@ class RequestTests: XCTestCase {
         super.tearDown()
         requestFactory = nil
     }
+
+    // MARK: - Auth tests
     
     func testLogin() {
         
@@ -30,7 +32,6 @@ class RequestTests: XCTestCase {
         auth?.login(userName: "Ivan", password: "Xxxxxxx") { response in
             
             let result = response.result.value?.result
-            print("\n", response.result.value)
             XCTAssertEqual(result, 1)
             self.expectation.fulfill()
         }
@@ -48,6 +49,8 @@ class RequestTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+
+    // MARK: - Products tests
     
     func testProductList() {
         
@@ -72,6 +75,8 @@ class RequestTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+
+    // MARK: - Register and profile update tests
 
     func testRegister() {
 
@@ -98,6 +103,8 @@ class RequestTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+
+    // MARK: - Review tests
     
     func testReviewList() {
         
@@ -130,6 +137,44 @@ class RequestTests: XCTestCase {
             
             let result = response.result.value
             XCTAssert(result != nil)
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+
+    // MARK: - Basket tests
+
+    func testAddToBasket() {
+
+        let basket = requestFactory?.basketRequestFactory()
+        basket?.addProductToBasket(withProductID: 12, andQuantity: 1) { response in
+
+            let result = response.result.value?.result
+            XCTAssertEqual(result, 1)
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func testDeleteFromBasket() {
+
+        let basket = requestFactory?.basketRequestFactory()
+        basket?.deleteProductFromBasket(withProductID: 12) { response in
+
+            let result = response.result.value?.result
+            XCTAssertEqual(result, 1)
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func testBasketPay() {
+
+        let basket = requestFactory?.basketRequestFactory()
+        basket?.basketPay(forUser: 22) { response in
+
+            let result = response.result.value?.result
+            XCTAssertEqual(result, 1)
             self.expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1)

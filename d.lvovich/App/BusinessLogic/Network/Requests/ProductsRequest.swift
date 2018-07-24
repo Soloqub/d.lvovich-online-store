@@ -1,5 +1,5 @@
 //
-//  ProductsData.swift
+//  ProductsRequest.swift
 //  d.lvovich
 //
 //  Created by Денис on 10.07.2018.
@@ -30,7 +30,7 @@ extension ProductData: ProductRequestFactory {
     }
     
     func getProduct(byID productID: Int, completionHandler: @escaping (DataResponse<ProductDetail>) -> Void) {
-        let requestModel = ProductRequest(id: 12)
+        let requestModel = ProductRequest(id: productID)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
